@@ -38,8 +38,12 @@ class HandDetector:
 
         # Load Mediapipe hand solution
         self.mp_hands = mp.solutions.hands
-        self.hands = self.mp_hands.Hands(self.mode, self.max_hands,
-                                         self.detection_conf, self.track_conf)
+        self.hands = self.mp_hands.Hands(
+            static_image_mode=self.mode,
+            max_num_hands=self.max_hands,
+            min_detection_confidence=self.detection_conf,
+            min_tracking_confidence=self.track_conf
+        )
         self.mp_draw = mp.solutions.drawing_utils  # For rendering hand landmarks
         self.tip_ids = [4, 8, 12, 16, 20]  # Landmark IDs for fingertips
 

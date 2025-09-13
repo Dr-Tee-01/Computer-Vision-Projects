@@ -16,7 +16,8 @@ cap.set(4, CAM_HEIGHT)             # 4 = height property
 prev_time = 0  # For calculating FPS later
 
 # Initialize hand detector (from custom HandTrackingModule)
-detector = htm.handDetector(detectionCon=0.7, maxHands=1)
+detector = htm.HandDetector(detection_conf=0.7, max_hands=1)
+
 
 # --------------------------- Audio Setup ---------------------------
 # Use Pycaw to control system audio
